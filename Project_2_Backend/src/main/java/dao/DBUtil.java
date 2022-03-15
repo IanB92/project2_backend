@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import exceptions.SystemException;
+
 public class DBUtil {
 	// Using static to save memory because we only wanna call this once when
 	// for each method.
@@ -45,4 +47,10 @@ public class DBUtil {
 		}
 		return conn;
 	}
+	static void closeConnection() throws SystemException {
+		  try{
+			  conn.close();
+		  } catch(SQLException e) {
+			  throw new SystemException();
+		  }}
 }

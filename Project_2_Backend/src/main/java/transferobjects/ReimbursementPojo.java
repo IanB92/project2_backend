@@ -91,6 +91,14 @@ public class ReimbursementPojo {
 		}
 
 
+		@Override
+		public String toString() {
+			return "ReimbursementPojo [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId
+					+ ", reimbursementAmount=" + reimbursementAmount + ", reimbursementReason=" + reimbursementReason
+					+ ", reimbursementDate=" + reimbursementDate + ", status=" + status + "]";
+		}
+
+
 
 
 		}

@@ -1,4 +1,4 @@
-package atlas2;
+package dao;
 
 import java.sql.Statement;
 import java.sql.Connection;
@@ -6,7 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import exception.SystemException;
+import exceptions.SystemException;
+import transferobjects.Denied;
+import transferobjects.ManagerPojo;
+import transferobjects.ReimbursementPojo;
+import transferobjects.ResolvedPojo;
 
 public class ManagerDaoJDBCImpl implements ManagerDao {
 
@@ -14,7 +18,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	public List<ReimbursementPojo> fetchAllPending() throws SystemException {
 
 		List<ReimbursementPojo> allPending = new ArrayList<ReimbursementPojo>();
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM pending_details";
@@ -34,7 +38,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	public List<Denied> fetchAllDenied() throws SystemException {
 
 		List<Denied> allDenied = new ArrayList<Denied>();
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM denied_details";
@@ -54,7 +58,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	public List<ResolvedPojo> fetchAllResolved() throws SystemException {
 
 		List<ResolvedPojo> allResolved = new ArrayList<ResolvedPojo>();
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM reimbursement_details";
@@ -75,7 +79,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	public List<ReimbursementPojo> fetchEmpReimbursement(int employeeId) throws SystemException {
 		List<ReimbursementPojo> allRequests = new ArrayList<ReimbursementPojo>();
 		
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM pending_details WHERE employee_id= " + employeeId + "UNION ALL SELECT * FROM denied_details WHERE employee_id= " + employeeId + "UNION ALL SELECT * FROM reimbursement_details WHERE employee_id=" + employeeId;
@@ -93,7 +97,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	@Override
 	public ReimbursementPojo fetchByReimId(int reimId) throws SystemException {
 		ReimbursementPojo reimbursementPojo = null;
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM pending_details WHERE pending_id=" + reimId;
@@ -111,7 +115,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	@Override
 	public ReimbursementPojo approve(int pendingId) throws SystemException {
 		ReimbursementPojo reimbursementPojo = null;
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			
@@ -124,7 +128,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 				
 				int rows1 = stmt.executeUpdate(query1);
 				
-				String query3 = "DELETE FROM pending_details WHERE pending_id=" + reimbursementPojo.getPendingId();
+				String query3 = "DELETE FROM pending_details WHERE pending_id=" + pendingId;
 				int rows3 = stmt.executeUpdate(query3);
 				
 			} else {
@@ -142,7 +146,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	public ManagerPojo managerLogin(ManagerPojo manager) throws SystemException {
 		Connection conn;
 		
-			conn = DbUtil.receiveConnection();
+		 conn = DBUtil.getConnected();
 		
 
 	Statement stmt;
@@ -174,7 +178,7 @@ return manager;
 	@Override
 	public ReimbursementPojo deny(int pendingId) throws SystemException {
 		ReimbursementPojo reimbursementPojo = null;
-		Connection conn = DbUtil.receiveConnection();
+		Connection conn = DBUtil.getConnected();
 		try {
 			Statement stmt = conn.createStatement();
 			
@@ -187,7 +191,7 @@ return manager;
 				
 				int rows1 = stmt.executeUpdate(query1);
 				
-				String query3 = "DELETE FROM pending_details WHERE pending_id=" + reimbursementPojo.getPendingId();
+				String query3 = "DELETE FROM pending_details WHERE pending_id=" + pendingId;
 				int rows3 = stmt.executeUpdate(query3);
 				
 			} else {

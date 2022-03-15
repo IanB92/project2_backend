@@ -1,7 +1,13 @@
-package atlas2;
+package service;
 
-	import java.util.List;
-	import exception.SystemException;
+import java.util.List;
+import dao.ManagerDao;
+import dao.ManagerDaoJDBCImpl;
+import exceptions.SystemException;
+import transferobjects.Denied;
+import transferobjects.ManagerPojo;
+import transferobjects.ReimbursementPojo;
+import transferobjects.ResolvedPojo;
 	
 	public class ManagerServiceImpl implements ManagerService {
 		
@@ -32,17 +38,17 @@ package atlas2;
 		}
 
 		@Override
-		public ReimbursementPojo  approve(int employeeId) throws SystemException {
+		public ReimbursementPojo  approve(int pendingId) throws SystemException {
 			
-			return managerDao.approve(employeeId);
+			return managerDao.approve(pendingId);
 		}
 
 		
 
 		@Override
-		public ReimbursementPojo deny(int employeeId) throws SystemException {
+		public ReimbursementPojo deny(int pendingId) throws SystemException {
 			
-			return managerDao.deny(employeeId);
+			return managerDao.deny(pendingId);
 		}
 
 		@Override

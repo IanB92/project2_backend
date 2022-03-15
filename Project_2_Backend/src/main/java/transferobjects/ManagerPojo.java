@@ -1,4 +1,4 @@
-package atlas2;
+package transferobjects;
 
 public class ManagerPojo {
 	
