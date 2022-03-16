@@ -35,7 +35,9 @@ public class DBUtil {
 		
 		String username = "postgres";
 		String password = "Yeshua7753";
-		String connectionUrl = "jdbc:postgresql://127.0.0.1:5432/project_1";
+		//String connectionUrl = "jdbc:postgresql://127.0.0.1:5432/project_1";
+		String connectionUrl ="jdbc:postgresql://ip-172-31-24-207.ec2.internal:8888/project2_backend";
+				
 		if (conn == null) {
 			try {
 				conn = DriverManager.getConnection(connectionUrl, username, password);
