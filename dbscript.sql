@@ -27,3 +27,4 @@ ALTER TABLE pending_details add column status varchar(10);
 
 
 
+INSERT INTO manager_details(first_name, last_name, address, contact, email, username, password) VALUES('eren', 'yeager', 'paradise island', '7058752445', 'attacktitan@gmail.com', '01', '77');
