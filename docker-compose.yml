@@ -12,7 +12,7 @@ services:
     image: javalin-backend
     build: .
     ports:
-      - 8080:7070
+      - 1010:7070
     depends_on:
       - my-postgres
     links:
