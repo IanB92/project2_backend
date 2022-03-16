@@ -26,3 +26,8 @@ CREATE TABLE pending_details(pending_id int GENERATED ALWAYS AS IDENTITY, employ
 ALTER TABLE pending_details add column status varchar(10);
 
 
+
+INSERT INTO manager_details(first_name, last_name, address, contact, email, username, password) VALUES('eren', 'yeager', 'paradise island', '7058752445', 'attacktitan@gmail.com', '01', '77');
+
+INSERT INTO employee_details(first_name, last_name, address, contact, email, username, password) VALUES('percy', 'jackson', 'camp half blood', '7058757777', 'sonOfzeus@gmail.com', '11', '02');
+INSERT INTO manager_details(first_name, last_name, address, contact, email, username, password) VALUES('Grover', 'Faun', 'The woods', '6148754745', 'musicisdope@gmail.com', '15', '03');
