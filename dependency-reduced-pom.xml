@@ -22,7 +22,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>MainReimbursement</mainClass>
+              <mainClass>Main_Reimbursement</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -39,7 +39,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>MainReimbursement</mainClass>
+                  <mainClass>Main_Reimbursement</mainClass>
                 </transformer>
               </transformers>
             </configuration>

@@ -76,7 +76,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>MainReimbursement</mainClass>
+							<mainClass>Main_Reimbursement</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -95,7 +95,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>MainReimbursement</mainClass>
+									<mainClass>Main_Reimbursement</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

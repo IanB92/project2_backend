@@ -16,7 +16,7 @@ import transferobjects.ManagerPojo;
 import transferobjects.ReimbursementPojo;
 import transferobjects.ResolvedPojo;
 
-public class MainReimbursement {
+public class Main_Reimbursement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
