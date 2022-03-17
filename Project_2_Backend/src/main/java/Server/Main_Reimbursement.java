@@ -20,9 +20,12 @@ public class Main_Reimbursement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		// testing integration
+		
 		EmployeeService employeeService = new EmployeeServiceImpl();
 		ManagerService managerService = new ManagerServiceImpl();
-		// Javalin myServer = Javalin.create().start(7070);
+		
 		Javalin myServer = Javalin.create((config) -> config.enableCorsForAllOrigins()).start(7070);
 		System.out.println("Server listening at port 7070 . .");
 
